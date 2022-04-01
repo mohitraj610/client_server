@@ -20,10 +20,14 @@ const Signup = () => {
       password: "Wiingy@123",
       country: "India",
       }
-  
-      console.log(info);
-      const url = "https://wiingy-server-uploading.herokuapp.com/api/users";
-      const { data: res } =  await axios.post(url, info);
+      try{
+        const url = "https://wiingy-server-uploading.herokuapp.com/api/users";
+        const { data: res } =  await axios.post(url, info);
+      }
+      catch (error)
+      {
+        console.log('Already have an account')
+      }
       window.location = `http://wiinblock.wiingy.com/`;
   };
 
